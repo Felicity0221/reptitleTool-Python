@@ -12,7 +12,7 @@ import chardet
 import time
 
 
-def getUrl(url, baseUrl, path):
+def getUrl(url, baseUrl, path, htmlName):
     # 请求页面
 
     # 页面编码
@@ -158,7 +158,7 @@ def getUrl(url, baseUrl, path):
 
 
         # 将页面内容写入html
-        index_file = open(path+"/"+"index.html","w",encoding="utf-8")
+        index_file = open(path+"/"+htmlName+".html","w",encoding="utf-8")
         index_file.write(r.text)
         index_file.close()
     else:
@@ -166,10 +166,8 @@ def getUrl(url, baseUrl, path):
 
 
 if __name__ == "__main__":
-    start_url = 'https://www.niaogebiji.com/'
-    save_directory = 'www.niaogebiji.com'
 
-    if not os.path.exists(save_directory):
-        os.makedirs(save_directory)
-
-    getUrl(start_url, start_url, save_directory)
+    getUrl('https://www.eduxiao.com/zuowen1/99240.html',
+           "https://www.eduxiao.com",
+           'F:/WorkSpace/spiders-temp/spiders-temp/new/www.eduxiao.com',
+           "art_detail")
